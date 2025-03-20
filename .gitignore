@@ -5,6 +5,14 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# 忽略所有state_dicts目录下的文件
+state_dicts/
+state_dicts/*
+
+# 忽略所有模型文件
+*.pt
+*.pth
+
 # 忽略data文件夹下的所有内容
 data/
 data/*
