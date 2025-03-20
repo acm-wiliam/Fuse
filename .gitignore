@@ -1,0 +1,27 @@
+# 忽略所有__pycache__目录
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*.py[cod]
+*$py.class
+
+# 忽略data文件夹下的所有内容
+data/
+data/*
+
+# 忽略一些常见的Python临时文件
+*.so
+.Python
+.env
+.venv
+env/
+venv/
+ENV/
+
+# 忽略Jupyter Notebook临时文件
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# 忽略VS Code相关文件
+.vscode/
+*.code-workspace
