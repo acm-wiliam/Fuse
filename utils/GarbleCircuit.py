@@ -283,15 +283,16 @@ def demonstrate_garbled_circuit():
     alice = Alice()
     bob = Bob()
     
-    # Alice设置电路
-    alice.setup_circuit()
-    print("Alice已设置电路")
-    
+    # Alice设置电路，手动选择电路类型
+    circuit_type = input("请选择电路类型 (AND/XOR): ").strip().upper()
+    alice.setup_circuit(circuit_type)
+    print(f"Alice已设置{circuit_type}电路")
+
     # 假设Alice的输入是a=0，Bob的输入是b=1
     alice_input_name = 'a'
-    alice_input_value = 1
+    alice_input_value = int(input("请输入Alice的输入值 (0/1) 对于 a: ").strip())
     bob_input_name = 'b'
-    bob_input_value = 1
+    bob_input_value = int(input("请输入Bob的输入值 (0/1) 对于 b: ").strip())
     
     print(f"Alice的输入: {alice_input_name}={alice_input_value}")
     print(f"Bob的输入: {bob_input_name}={bob_input_value}")
@@ -307,10 +308,16 @@ def demonstrate_garbled_circuit():
     
     # Bob评估电路
     result = bob.evaluate_circuit(alice_key)
-    print(f"电路评估结果: AND({alice_input_value}, {bob_input_value}) = {result}")
+    print(f"电路评估结果: {circuit_type}({alice_input_value}, {bob_input_value}) = {result}")
     
     # 验证结果
-    expected = alice_input_value & bob_input_value
+    if circuit_type == "AND":
+        expected = alice_input_value & bob_input_value
+    elif circuit_type == "XOR":
+        expected = alice_input_value ^ bob_input_value
+    else:
+        raise ValueError(f"不支持的电路类型: {circuit_type}")
+    
     if result == expected:
         print("结果正确！")
     else:

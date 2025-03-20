@@ -13,6 +13,24 @@ state_dicts/*
 *.pt
 *.pth
 
+# 忽略所有日志文件
+*.log
+*.log.*
+
+# 忽略所有数据文件
+*.csv
+*.json
+*.txt
+
+# 忽略所有图片文件
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.tiff
+*.svg
+
 # 忽略data文件夹下的所有内容
 data/
 data/*
