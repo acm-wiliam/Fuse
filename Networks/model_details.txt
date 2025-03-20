@@ -1,22 +1,21 @@
-VGG16——CIFAR10
-层类型	细节	输出尺寸（CIFAR-10: 32×32×3 输入）
-卷积层 (Conv3-64)	3×3×64, ReLU	32×32×64
-卷积层 (Conv3-64)	3×3×64, ReLU	32×32×64
-最大池化	2×2, Stride=2	16×16×64
-卷积层 (Conv3-128)	3×3×128, ReLU	16×16×128
-卷积层 (Conv3-128)	3×3×128, ReLU	16×16×128
-最大池化	2×2, Stride=2	8×8×128
-卷积层 (Conv3-256)	3×3×256, ReLU	8×8×256
-卷积层 (Conv3-256)	3×3×256, ReLU	8×8×256
-最大池化	2×2, Stride=2	4×4×256
-卷积层 (Conv3-512)	3×3×512, ReLU	4×4×512
-卷积层 (Conv3-512)	3×3×512, ReLU	4×4×512
-最大池化	2×2, Stride=2	2×2×512
-全连接层	512, ReLU	512
-全连接层	512, ReLU	512
-输出层	 Softmax	10
+MLP——MNIST
+全连接层 (FC)	784 -> 256, ReLU	256
+全连接层 (FC)	256 -> 128, ReLU	128
+全连接层 (FC)	128 -> 64, ReLU	64
+全连接层 (FC)	64 -> 10, (无Softmax)	10
 
-ResNet18
+
+4CNN——MNIST
+卷积层 (Conv2d)	1×32, 3×3, Stride=1, ReLU
+卷积层 (Conv2d)	32×64, 3×3, Stride=1, ReLU
+最大池化	2×2, Stride=2
+Dropout	0.25
+全连接层 (FC)	9216 -> 128, ReLU
+Dropout	0.5
+全连接层 (FC)	128 -> 10, LogSoftmax
+
+
+ResNet18——CIFAR10
 卷积层 (Conv3-64)	3×3×64, Stride=2, ReLU	16×16×64
 最大池化	3×3, Stride=2	8×8×64
 残差块 (ResBlock)	3×3×64, 3×3×64	8×8×64
@@ -29,3 +28,4 @@ ResNet18
 残差块 (ResBlock)	3×3×512, 3×3×512	1×1×512
 全局平均池化	1×1	1×1×512
 全连接层	512, Softmax	10
+

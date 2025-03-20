@@ -31,6 +31,12 @@ state_dicts/*
 *.tiff
 *.svg
 
+# 忽略所有模型文件
+*.h5
+*.ckpt
+*.pt
+*.pth
+
 # 忽略data文件夹下的所有内容
 data/
 data/*
